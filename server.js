@@ -73,14 +73,6 @@ app.get('/', function (req, res) {
 
 });
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
-});
-
-
-
-
-
 axios.post('https://secure.paydek.com/payment/api/paymentAPI.php',objeto
 )
   .then(response => {
@@ -96,3 +88,9 @@ function hashear(o,key){
   var key= md5(key+o.userName+o.firstName+o.lastName+o.idn+o.country+o.city);
   return key;
 }
+
+
+app.listen(process.env.PORT || 4000 ,function(){
+    console.log("up and running on port "+process.env.PORT);
+});
+
